@@ -1,0 +1,2086 @@
+/* ============================================
+   Global Opcerts - Internal Admin Dashboard
+   Design tokens from Figma
+   ============================================ */
+
+/* Visa Dialect UI Font Faces */
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-Light-Web.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-LightItalic-Web.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-Regular-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-RegularItalic-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-Medium-Web.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-MediumItalic-Web.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-Semibold-Web.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-SemiboldItalic-Web.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-Bold-Web.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Visa Dialect UI';
+  src: url('Visa Dialect UI WebFonts/VisaDialectUI-BoldItalic-Web.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Colors */
+  --color-accent: #1434CB;
+  --color-text: #000000;
+  --color-text-subtle: #4A4A4A;
+  --color-text-on-active: #FFFFFF;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F5F5F5;
+  --color-surface-3: #F0F0F0;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-negative: #AD2929;
+  --color-positive: #40996B;
+  --color-green-dark: #1A6B3C;
+
+  /* Spacing */
+  --size-50: 4px;
+  --size-75: 6px;
+  --size-100: 8px;
+  --size-125: 11px;
+  --size-150: 12px;
+  --size-175: 15px;
+  --size-200: 16px;
+  --size-250: 20px;
+  --size-300: 24px;
+
+  /* Border Radius */
+  --radius-medium: 6px;
+  --radius-large: 10px;
+  --radius-full: 48px;
+
+  /* Shadows */
+  --shadow-small: 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
+
+  /* Font Family */
+  --font-family: 'Visa Dialect UI', sans-serif;
+
+  /* ---- VPDS Typography Tokens ---- */
+  /* Headline 1 */
+  --typography-headline-1-font-family: var(--font-family);
+  --typography-headline-1-font-size: 48px;
+  --typography-headline-1-font-weight: 600;
+  --typography-headline-1-line-height: 62px;
+  --typography-headline-1-letter-spacing: 0.5px;
+
+  /* Headline 2 */
+  --typography-headline-2-font-family: var(--font-family);
+  --typography-headline-2-font-size: 32px;
+  --typography-headline-2-font-weight: 600;
+  --typography-headline-2-line-height: 42px;
+  --typography-headline-2-letter-spacing: 0.5px;
+
+  /* Headline 3 */
+  --typography-headline-3-font-family: var(--font-family);
+  --typography-headline-3-font-size: 25px;
+  --typography-headline-3-font-weight: 500;
+  --typography-headline-3-line-height: 33px;
+  --typography-headline-3-letter-spacing: 0px;
+
+  /* Headline L (Large) */
+  --typography-headline-l-font-family: var(--font-family);
+  --typography-headline-l-font-size: 20px;
+  --typography-headline-l-font-weight: 600;
+  --typography-headline-l-line-height: 26px;
+  --typography-headline-l-letter-spacing: 0px;
+
+  /* Headline M (Medium) */
+  --typography-headline-m-font-family: var(--font-family);
+  --typography-headline-m-font-size: 18px;
+  --typography-headline-m-font-weight: 600;
+  --typography-headline-m-line-height: 24px;
+  --typography-headline-m-letter-spacing: 0px;
+
+  /* Headline S (Small) */
+  --typography-headline-s-font-family: var(--font-family);
+  --typography-headline-s-font-size: 16px;
+  --typography-headline-s-font-weight: 600;
+  --typography-headline-s-line-height: 21px;
+  --typography-headline-s-letter-spacing: 0px;
+
+  /* Subtitle 1 */
+  --typography-subtitle-1-font-family: var(--font-family);
+  --typography-subtitle-1-font-size: 16px;
+  --typography-subtitle-1-font-weight: 500;
+  --typography-subtitle-1-line-height: 21px;
+  --typography-subtitle-1-letter-spacing: 0px;
+
+  /* Subtitle 2 */
+  --typography-subtitle-2-font-family: var(--font-family);
+  --typography-subtitle-2-font-size: 14px;
+  --typography-subtitle-2-font-weight: 600;
+  --typography-subtitle-2-line-height: 18px;
+  --typography-subtitle-2-letter-spacing: 0px;
+
+  /* Body 1 */
+  --typography-body-1-font-family: var(--font-family);
+  --typography-body-1-font-size: 16px;
+  --typography-body-1-font-weight: 400;
+  --typography-body-1-line-height: 24px;
+  --typography-body-1-letter-spacing: 0px;
+
+  /* Body 2 */
+  --typography-body-2-font-family: var(--font-family);
+  --typography-body-2-font-size: 14px;
+  --typography-body-2-font-weight: 400;
+  --typography-body-2-line-height: 22px;
+  --typography-body-2-letter-spacing: 0px;
+
+  /* Body 3 */
+  --typography-body-3-font-family: var(--font-family);
+  --typography-body-3-font-size: 12px;
+  --typography-body-3-font-weight: 400;
+  --typography-body-3-line-height: 16px;
+  --typography-body-3-letter-spacing: 0px;
+
+  /* Label (Large) */
+  --typography-label-large-font-family: var(--font-family);
+  --typography-label-large-font-size: 14px;
+  --typography-label-large-font-weight: 500;
+  --typography-label-large-line-height: 18px;
+
+  --typography-label-large-letter-spacing: 0px;
+
+  /* Label */
+  --typography-label-font-family: var(--font-family);
+  --typography-label-font-size: 12px;
+  --typography-label-font-weight: 500;
+  --typography-label-font-size: 12px;
+  --typography-label-line-height: 16px;
+  --typography-label-letter-spacing: 0px;
+
+  /* Label Active */
+  --typography-label-active-font-family: var(--font-family);
+  --typography-label-active-font-size: 12px;
+  --typography-label-active-font-weight: 600;
+  --typography-label-active-line-height: 16px;
+  --typography-label-active-letter-spacing: 0.25px;
+
+  /* Overline */
+  --typography-overline-font-family: var(--font-family);
+  --typography-overline-font-size: 10px;
+  --typography-overline-font-weight: 600;
+  --typography-overline-line-height: 14px;
+  --typography-overline-letter-spacing: 1px;
+  --typography-overline-text-transform: uppercase;
+
+  /* Caption */
+  --typography-caption-font-family: var(--font-family);
+  --typography-caption-font-size: 10px;
+  --typography-caption-font-weight: 400;
+  --typography-caption-line-height: 14px;
+  --typography-caption-letter-spacing: 0px;
+
+  /* Typography Color Tokens */
+  --typography-color-default: var(--color-text);
+  --typography-color-subtle: var(--color-text-subtle);
+  --typography-color-active: var(--color-accent);
+  --typography-color-positive: var(--color-positive);
+  --typography-color-negative: var(--color-negative);
+  --typography-color-on-active: var(--color-text-on-active);
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  background: var(--color-surface-1);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ============================================
+   VPDS Typography Utility Classes
+   ============================================ */
+.v-typography-headline-1 {
+  font-family: var(--typography-headline-1-font-family);
+  font-size: var(--typography-headline-1-font-size);
+  font-weight: var(--typography-headline-1-font-weight);
+  line-height: var(--typography-headline-1-line-height);
+  letter-spacing: var(--typography-headline-1-letter-spacing);
+}
+
+.v-typography-headline-2 {
+  font-family: var(--typography-headline-2-font-family);
+  font-size: var(--typography-headline-2-font-size);
+  font-weight: var(--typography-headline-2-font-weight);
+  line-height: var(--typography-headline-2-line-height);
+  letter-spacing: var(--typography-headline-2-letter-spacing);
+}
+
+.v-typography-headline-3 {
+  font-family: var(--typography-headline-3-font-family);
+  font-size: var(--typography-headline-3-font-size);
+  font-weight: var(--typography-headline-3-font-weight);
+  line-height: var(--typography-headline-3-line-height);
+  letter-spacing: var(--typography-headline-3-letter-spacing);
+}
+
+.v-typography-headline-l {
+  font-family: var(--typography-headline-l-font-family);
+  font-size: var(--typography-headline-l-font-size);
+  font-weight: var(--typography-headline-l-font-weight);
+  line-height: var(--typography-headline-l-line-height);
+  letter-spacing: var(--typography-headline-l-letter-spacing);
+}
+
+.v-typography-headline-m {
+  font-family: var(--typography-headline-m-font-family);
+  font-size: var(--typography-headline-m-font-size);
+  font-weight: var(--typography-headline-m-font-weight);
+  line-height: var(--typography-headline-m-line-height);
+  letter-spacing: var(--typography-headline-m-letter-spacing);
+}
+
+.v-typography-headline-s {
+  font-family: var(--typography-headline-s-font-family);
+  font-size: var(--typography-headline-s-font-size);
+  font-weight: var(--typography-headline-s-font-weight);
+  line-height: var(--typography-headline-s-line-height);
+  letter-spacing: var(--typography-headline-s-letter-spacing);
+}
+
+.v-typography-subtitle-1 {
+  font-family: var(--typography-subtitle-1-font-family);
+  font-size: var(--typography-subtitle-1-font-size);
+  font-weight: var(--typography-subtitle-1-font-weight);
+  line-height: var(--typography-subtitle-1-line-height);
+  letter-spacing: var(--typography-subtitle-1-letter-spacing);
+}
+
+.v-typography-subtitle-2 {
+  font-family: var(--typography-subtitle-2-font-family);
+  font-size: var(--typography-subtitle-2-font-size);
+  font-weight: var(--typography-subtitle-2-font-weight);
+  line-height: var(--typography-subtitle-2-line-height);
+  letter-spacing: var(--typography-subtitle-2-letter-spacing);
+}
+
+.v-typography-body-1 {
+  font-family: var(--typography-body-1-font-family);
+  font-size: var(--typography-body-1-font-size);
+  font-weight: var(--typography-body-1-font-weight);
+  line-height: var(--typography-body-1-line-height);
+  letter-spacing: var(--typography-body-1-letter-spacing);
+}
+
+.v-typography-body-2 {
+  font-family: var(--typography-body-2-font-family);
+  font-size: var(--typography-body-2-font-size);
+  font-weight: var(--typography-body-2-font-weight);
+  line-height: var(--typography-body-2-line-height);
+  letter-spacing: var(--typography-body-2-letter-spacing);
+}
+
+.v-typography-body-3 {
+  font-family: var(--typography-body-3-font-family);
+  font-size: var(--typography-body-3-font-size);
+  font-weight: var(--typography-body-3-font-weight);
+  line-height: var(--typography-body-3-line-height);
+  letter-spacing: var(--typography-body-3-letter-spacing);
+}
+
+.v-typography-label-large {
+  font-family: var(--typography-label-large-font-family);
+  font-size: var(--typography-label-large-font-size);
+  font-weight: var(--typography-label-large-font-weight);
+  line-height: var(--typography-label-large-line-height);
+  letter-spacing: var(--typography-label-large-letter-spacing);
+}
+
+.v-typography-label {
+  font-family: var(--typography-label-font-family);
+  font-size: var(--typography-label-font-size);
+  font-weight: var(--typography-label-font-weight);
+  line-height: var(--typography-label-line-height);
+  letter-spacing: var(--typography-label-letter-spacing);
+}
+
+.v-typography-label-active {
+  font-family: var(--typography-label-active-font-family);
+  font-size: var(--typography-label-active-font-size);
+  font-weight: var(--typography-label-active-font-weight);
+  line-height: var(--typography-label-active-line-height);
+  letter-spacing: var(--typography-label-active-letter-spacing);
+}
+
+.v-typography-overline {
+  font-family: var(--typography-overline-font-family);
+  font-size: var(--typography-overline-font-size);
+  font-weight: var(--typography-overline-font-weight);
+  line-height: var(--typography-overline-line-height);
+  letter-spacing: var(--typography-overline-letter-spacing);
+  text-transform: var(--typography-overline-text-transform);
+}
+
+.v-typography-caption {
+  font-family: var(--typography-caption-font-family);
+  font-size: var(--typography-caption-font-size);
+  font-weight: var(--typography-caption-font-weight);
+  line-height: var(--typography-caption-line-height);
+  letter-spacing: var(--typography-caption-letter-spacing);
+}
+
+/* VPDS Typography Color Utilities */
+.v-typography-color-default { color: var(--typography-color-default); }
+.v-typography-color-subtle { color: var(--typography-color-subtle); }
+.v-typography-color-active { color: var(--typography-color-active); }
+.v-typography-color-positive { color: var(--typography-color-positive); }
+.v-typography-color-negative { color: var(--typography-color-negative); }
+.v-typography-color-on-active { color: var(--typography-color-on-active); }
+
+/* ============================================
+   Navigation Bar
+   ============================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-surface-1);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-small);
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--size-300);
+  height: 80px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--size-200);
+}
+
+.visa-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.app-name {
+  font-size: var(--typography-headline-l-font-size);
+  font-weight: var(--typography-headline-l-font-weight);
+  line-height: var(--typography-headline-l-line-height);
+  color: var(--typography-color-active);
+  white-space: nowrap;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--size-300);
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--size-100);
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--size-50);
+  padding: var(--size-175) var(--size-150);
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #4A4A4A;
+  border-radius: var(--radius-medium);
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.nav-tab:hover {
+  background: var(--Color-Surface-surface-highlight, rgba(179, 215, 255, 0.35));
+  border-radius: var(--medium, 6px);
+  color: var(--Active-hover, var(--Color-Active-active-hover, #173BE8));
+}
+
+.nav-tab.active {
+  background: var(--color-surface-3);
+  color: var(--color-text);
+}
+
+.nav-tab .chevron-down {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--size-100);
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-full);
+  transition: background-color 0.15s;
+  position: relative;
+}
+
+.icon-btn:hover {
+  background: var(--Color-Surface-surface-highlight, rgba(179, 215, 255, 0.35));
+}
+
+.notification-btn {
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  background: var(--color-negative);
+  color: var(--color-text-on-active);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-negative);
+}
+
+.account-btn {
+  width: 72px;
+  height: 46px;
+  border-radius: var(--radius-medium);
+  padding: 0;
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+.main-content {
+  flex: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 64px 131px 60px;
+}
+
+.page-header {
+  margin-bottom: 40px;
+}
+
+.welcome-heading {
+  font-size: var(--typography-headline-2-font-size);
+  font-weight: var(--typography-headline-2-font-weight);
+  line-height: var(--typography-headline-2-line-height);
+  letter-spacing: var(--typography-headline-2-letter-spacing);
+  color: var(--typography-color-active);
+  margin-bottom: 10px;
+}
+
+.welcome-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--typography-color-subtle);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 391px 391px;
+  gap: 30px;
+}
+
+/* Columns */
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ============================================
+   Cards (Shared)
+   ============================================ */
+.card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-small);
+  padding: var(--size-250);
+}
+
+/* ============================================
+   Category Cards (Left Column)
+   ============================================ */
+.category-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-100);
+}
+
+.card-category-label {
+  display: flex;
+  align-items: center;
+  gap: var(--size-75);
+  color: var(--color-accent);
+}
+
+.card-headline {
+  font-size: var(--typography-headline-m-font-size);
+  font-weight: var(--typography-headline-m-font-weight);
+  line-height: var(--typography-headline-m-line-height);
+  color: var(--typography-color-active);
+}
+
+.card-headline a {
+  color: var(--typography-color-active);
+}
+
+.card-headline a:hover {
+  text-decoration: underline;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-text-subtle);
+}
+
+.card-body {
+  font-size: var(--typography-body-2-font-size);
+  font-weight: 300;
+  line-height: var(--typography-body-2-line-height);
+  color: var(--typography-color-default);
+}
+
+.card-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--size-200);
+  margin-top: 4px;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-75);
+  padding: var(--size-125) var(--size-175);
+  font-size: var(--typography-label-active-font-size);
+  font-weight: var(--typography-label-active-font-weight);
+  line-height: var(--typography-label-active-line-height);
+  letter-spacing: var(--typography-label-active-letter-spacing);
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-text-on-active);
+  border: 1px solid var(--color-accent);
+  border-radius: 6px;
+  padding: 10px 14px;
+  gap: 6px;
+  height: 38px;
+  min-height: 24px;
+}
+
+.btn-primary:hover {
+  background: #173BE8;
+  border: 1px solid #173BE8;
+  border-radius: 6px;
+  opacity: 1;
+}
+
+.btn-primary:active {
+  background: #0F2595;
+  border: 1px solid #0F2595;
+  border-radius: 6px;
+  opacity: 1;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1.5px solid var(--color-text);
+}
+
+.btn-outline:hover {
+  background: var(--color-surface-3);
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--color-accent);
+  border: none;
+  padding: 0;
+}
+
+.btn-text:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   Clickable Cards (Right Column)
+   ============================================ */
+.clickable-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--size-250);
+}
+
+.clickable-header {
+  margin-bottom: var(--size-100);
+}
+
+.clickable-headline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-50);
+  font-size: var(--typography-headline-m-font-size);
+  font-weight: var(--typography-headline-m-font-weight);
+  line-height: var(--typography-headline-m-line-height);
+  color: var(--typography-color-active);
+}
+
+.clickable-headline:hover {
+  text-decoration: none;
+}
+
+.clickable-subtitle {
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  color: #4A4A4A;
+  margin-top: 4px;
+}
+
+.clickthrough-item {
+  display: flex;
+  align-items: center;
+  gap: var(--size-100);
+  padding: var(--size-100) 0;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.clickthrough-label {
+  font-size: var(--typography-body-2-font-size);
+  font-weight: 300;
+  line-height: 18px;
+  color: var(--typography-color-subtle);
+}
+
+.clickthrough-value {
+  font-size: var(--typography-body-2-font-size);
+  font-weight: 300;
+  line-height: 18px;
+  color: var(--typography-color-default);
+  margin-left: auto;
+}
+
+.clickthrough-arrow {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Combined Card (billing + pricing sync) */
+.combined-card {
+  gap: 0;
+}
+
+.combined-section {
+  padding: 0;
+}
+
+.combined-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--size-100) 0;
+}
+
+/* ============================================
+   Dashboard Card (Pending Approvals)
+   ============================================ */
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-100);
+}
+
+.dashboard-value {
+  font-size: var(--typography-headline-1-font-size);
+  font-weight: var(--typography-headline-1-font-weight);
+  line-height: var(--typography-headline-1-line-height);
+  letter-spacing: var(--typography-headline-1-letter-spacing);
+  color: var(--color-green-dark);
+  margin: var(--size-100) 0;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  background: var(--color-surface-2);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px var(--size-300);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: var(--size-300);
+}
+
+.footer-logo svg {
+  display: block;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: var(--color-text);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: var(--size-200);
+}
+
+.footer-links a {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.footer-links a:active {
+  background: rgba(179, 215, 255, 0.6);
+}
+
+/* ============================================
+   Pricing Setup Page Layout
+   ============================================ */
+.setup-content {
+  flex: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 179px 60px;
+}
+
+.setup-header {
+  margin-bottom: 20px;
+}
+
+.setup-title {
+  font-size: var(--typography-headline-l-font-size);
+  font-weight: var(--typography-headline-l-font-weight);
+  line-height: var(--typography-headline-l-line-height);
+  color: var(--typography-color-default);
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   Step Indicator (Toggle Bar)
+   ============================================ */
+.step-indicator {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-text);
+  border-right: 1px solid var(--color-accent);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.15s;
+  position: relative;
+}
+
+.step-item:last-child {
+  border-right: none;
+}
+
+.step-item:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.step-item:active {
+  background: rgba(179, 215, 255, 0.6);
+}
+
+.step-item.active {
+  background: var(--color-surface-3);
+  color: var(--color-text);
+  font-weight: 500;
+  border-bottom: 2px solid var(--color-accent);
+  box-shadow: inset 0px 0px 4px 1px rgba(0,0,0,0.2), inset 0px 0px 4px 0px rgba(0,0,0,0.1);
+}
+
+.step-icon {
+  min-width: 16px;
+  height: 16px;
+  border-radius: 48px;
+  border: 1px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.step-icon.complete {
+  background: #2C6849;
+  border-color: #2C6849;
+}
+
+.step-icon.complete svg {
+  display: block;
+}
+
+.step-icon.check-outline {
+  background: transparent;
+  border-color: #2C6849;
+}
+
+.step-icon.check-outline svg {
+  display: block;
+}
+
+.step-icon.warning {
+  background: #875903;
+  border: 1px solid #4A4A4A;
+  padding: 2px;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.step-icon.warning svg {
+  display: block;
+}
+
+.step-icon.empty {
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.page-content-centered {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Section Heading (for inner pages)
+   ============================================ */
+.section-heading {
+  font-size: var(--typography-headline-2-font-size);
+  font-weight: var(--typography-headline-2-font-weight);
+  line-height: var(--typography-headline-2-line-height);
+  letter-spacing: var(--typography-headline-2-letter-spacing);
+  color: var(--typography-color-active);
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: var(--typography-body-2-font-size);
+  font-weight: var(--typography-body-2-font-weight);
+  line-height: var(--typography-body-2-line-height);
+  letter-spacing: var(--typography-body-2-letter-spacing);
+  color: var(--typography-color-default);
+  margin-bottom: 32px;
+}
+
+.section-subtitle a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.section-subtitle a:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.section-subtitle a:active {
+  background: rgba(179, 215, 255, 0.6);
+}
+
+/* ============================================
+   Form Card
+   ============================================ */
+.form-card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  padding: 24px 30px;
+  margin-bottom: 24px;
+}
+
+.form-card-title {
+  font-size: var(--typography-headline-3-font-size);
+  font-weight: var(--typography-headline-3-font-weight);
+  line-height: var(--typography-headline-3-line-height);
+  letter-spacing: var(--typography-headline-3-letter-spacing);
+  color: var(--typography-color-active);
+  margin-bottom: 4px;
+}
+
+.form-card-subtitle {
+  font-size: var(--typography-body-2-font-size);
+  font-weight: var(--typography-body-2-font-weight);
+  line-height: var(--typography-body-2-line-height);
+  letter-spacing: var(--typography-body-2-letter-spacing);
+  color: var(--typography-color-default);
+  margin-bottom: 16px;
+}
+
+.form-card-subtitle a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.form-card-subtitle a:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.form-card-subtitle a:active {
+  background: rgba(179, 215, 255, 0.6);
+}
+
+/* ============================================
+   Radio Button Panels
+   ============================================ */
+.radio-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.radio-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.radio-panel:hover {
+  background: rgba(179, 215, 255, 0.35);
+  border: 2px solid #173BE8;
+  padding: 11px 15px;
+}
+
+.radio-panel:active {
+  background: rgba(179, 215, 255, 0.6);
+  border: 2px solid #0F2595;
+  padding: 11px 15px;
+}
+
+.radio-panel.selected {
+  background: #FFFFFF;
+  border: 1px solid #1434CB;
+  padding: 12px 16px;
+}
+
+.radio-panel.selected:hover {
+  background: rgba(179, 215, 255, 0.35);
+  border: 2px solid #173BE8;
+  padding: 11px 15px;
+}
+
+.radio-panel.selected:active {
+  background: rgba(179, 215, 255, 0.6);
+  border: 2px solid #0F2595;
+  padding: 11px 15px;
+}
+
+.radio-input {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s;
+  margin-top: 1px;
+}
+
+.radio-input-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: none;
+}
+
+.radio-panel.selected .radio-input-dot {
+  display: block;
+}
+
+.radio-label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.radio-desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-text-subtle);
+}
+
+/* ============================================
+   File Uploader
+   ============================================ */
+.upload-section {
+  margin-top: 16px;
+}
+
+.upload-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.upload-section-desc {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-text-subtle);
+  margin-bottom: 16px;
+}
+
+.file-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  margin-top: 16px;
+  max-width: 354px;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-size {
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  color: #4A4A4A;
+}
+
+.file-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: var(--color-text-subtle);
+  flex-shrink: 0;
+}
+
+.file-action:hover {
+  color: var(--color-text);
+}
+
+/* ============================================
+   Form Inputs
+   ============================================ */
+.form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.form-row-full {
+  margin-bottom: 8px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: var(--typography-label-font-size);
+  font-weight: 400;
+  line-height: var(--typography-label-line-height);
+  color: var(--typography-color-subtle);
+}
+
+.form-group:focus-within .form-label {
+  color: #173BE8;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  height: 38px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-text);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  background: #FFFFFF;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.form-input:hover,
+.form-select:hover {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #173BE8;
+}
+
+.form-input:active,
+.form-select:active {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #0F2595;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #173BE8;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5.39355L2.47559 4L8 9.21387L13.5244 4L15 5.39355L8 12L1 5.39355Z' fill='%231435CB'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+  padding-right: 36px;
+}
+
+/* ============================================
+   Action Bar (centered buttons)
+   ============================================ */
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.action-bar-center {
+  justify-content: center;
+}
+
+/* ============================================
+   Pricing Suggestions Section
+   ============================================ */
+.section-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 8px 0 24px;
+}
+
+.suggestions-card .form-card-subtitle {
+  margin-bottom: 22px;
+}
+
+.suggestion-file-card {
+  padding: 7px 15px;
+  gap: 8px;
+  max-width: 100%;
+  align-items: center;
+}
+
+.suggestion-file-card .file-name {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.suggestion-file-card .file-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 48px;
+  padding: 8px;
+}
+
+.suggestion-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* ============================================
+   Progress Indicator
+   ============================================ */
+.progress-bar {
+  width: 290px;
+  margin: 16px 0 0 auto;
+  text-align: left;
+}
+
+.progress-track {
+  height: 4px;
+  background: var(--color-surface-3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 2px;
+  width: 60%;
+  animation: progress-anim 2s ease-in-out infinite;
+}
+
+@keyframes progress-anim {
+  0% { width: 10%; margin-left: 0; }
+  50% { width: 40%; margin-left: 30%; }
+  100% { width: 10%; margin-left: 90%; }
+}
+
+.progress-label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-text-subtle);
+}
+
+/* ============================================
+   Button: Disabled
+   ============================================ */
+.btn-disabled {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--color-text-on-active);
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+  opacity: 1;
+}
+
+/* Scroll target offset for anchor links */
+[id="rbls-missing-mapping"] {
+  scroll-margin-top: 95px;
+}
+
+/* ============================================
+   Data Table
+   ============================================ */
+.table-card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  padding: 24px 30px;
+  margin-bottom: 24px;
+  width: 857px;
+}
+
+
+.table-card-title {
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 33px;
+  color: #1435CB;
+  margin-bottom: 4px;
+}
+
+.table-card-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.table-card-desc a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.table-card-desc a:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.table-card-desc a:active {
+  background: rgba(179, 215, 255, 0.6);
+}
+
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--color-surface-2);
+  margin-bottom: 12px;
+}
+
+.toolbar-trailing {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 334px;
+  height: 38px;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.table-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 6px;
+  gap: 6px;
+  width: 288px;
+  height: 38px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  box-sizing: border-box;
+  flex: none;
+}
+
+.table-search:hover {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #173BE8;
+}
+
+.table-search:active {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #0F2595;
+}
+
+.table-search:focus-within {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #173BE8;
+}
+
+.table-search svg {
+  flex-shrink: 0;
+  color: var(--color-text-subtle);
+}
+
+.table-search input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+  background: transparent;
+}
+
+.filter-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  gap: 2px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 48px;
+  color: var(--color-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.filter-btn:hover svg > path:first-child {
+  fill: #B3D7FF;
+  fill-opacity: 0.35;
+  stroke: #173BE8;
+}
+
+.filter-btn:active svg > path:first-child {
+  fill: #B3D7FF;
+  fill-opacity: 0.6;
+  stroke: #0F2595;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+.data-table th {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--color-accent);
+  text-align: left;
+  padding: 10px 12px;
+  height: 40px;
+  background: #FFFFFF;
+  border-bottom: 2px solid var(--color-accent);
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.data-table td {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-text);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table tbody tr:hover {
+  background: var(--color-surface-2);
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: var(--color-surface-2);
+}
+
+.data-table tbody tr:nth-child(even):hover {
+  background: #EBEBEB;
+}
+
+/* Pagination */
+.table-pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 38px;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--color-text-subtle);
+  align-self: stretch;
+}
+
+.pagination-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #4A4A4A;
+}
+
+.pagination-range {
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.pagination-left select {
+  width: 71px;
+  height: 38px;
+  padding: 8px 32px 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #000000;
+  background: #FFFFFF;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 1.3936L1.4756 0L7 5.2139L12.5244 0L14 1.3936L7 8L0 1.3936Z' fill='%231434CB'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.pagination-left select:hover {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #173BE8;
+}
+
+.pagination-left select:active {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #0F2595;
+}
+
+.pagination-left select:focus {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.pagination-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  width: 397px;
+  height: 32px;
+  margin-left: auto;
+}
+
+.page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-accent);
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.15s, border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.page-btn:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.page-btn:active {
+  background: rgba(179, 215, 255, 0.6);
+  border-color: transparent;
+}
+
+.page-btn.active:active {
+  background: rgba(179, 215, 255, 0.6);
+  border-color: transparent;
+}
+
+.page-btn.active {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid #1434CB;
+  border-radius: 48px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 7px;
+}
+
+.page-btn.active:hover {
+  background: rgba(179, 215, 255, 0.35);
+  border: 1px solid #173BE8;
+}
+
+.page-btn.nav-btn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  isolation: isolate;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 48px;
+}
+
+.page-btn.nav-btn:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.page-btn.nav-btn:active {
+  background: rgba(179, 215, 255, 0.6);
+}
+
+.page-btn.nav-btn svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.page-btn.disabled {
+  cursor: not-allowed;
+}
+
+.page-btn.disabled:hover {
+  background: transparent;
+}
+
+.pagination-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 32px;
+  height: 32px;
+}
+
+.pagination-ellipsis svg {
+  display: block;
+}
+
+/* ============================================
+   List Card (for Pricing Rule Setup)
+   ============================================ */
+.list-card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  padding: 24px 30px;
+  margin-bottom: 24px;
+}
+
+.list-card-title {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 33px;
+  color: var(--typography-color-active);
+  margin-bottom: 20px;
+}
+
+.list-card-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.list-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.list-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.1), 0px 4px 15px -1px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.list-items.no-scroll {
+  max-height: none;
+  overflow-y: visible;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  min-height: 64px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-text);
+  align-self: stretch;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  padding: 12px 0;
+  align-items: center;
+}
+
+.list-item-row span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ============================================
+   Page Action Buttons (Top action bar)
+   ============================================ */
+.page-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   Upload Page Layout
+   ============================================ */
+.upload-card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  padding: 30px;
+  max-width: 951px;
+  margin-bottom: 24px;
+}
+
+.upload-card-title {
+  font-family: 'Visa Dialect UI', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.upload-card-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.upload-card-desc a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.upload-card-desc a:hover {
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.upload-card-desc a:active {
+  background: rgba(179, 215, 255, 0.6);
+}
+
+.upload-card .file-card {
+  max-width: 100%;
+  margin-top: 22px;
+}
+
+.multiline-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 22px;
+}
+
+.multiline-input .form-label {
+  font-weight: 400;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 130px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-text);
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.form-textarea:hover {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #173BE8;
+}
+
+.form-textarea:focus {
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #0F2595;
+}
+
+.textarea-counter {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #4A4A4A;
+}
+
+.upload-card .action-bar {
+  max-width: 100%;
+  margin-bottom: 0;
+  gap: 16px;
+}
+
+/* ============================================
+   Button: Secondary (blue outline)
+   ============================================ */
+.btn-secondary {
+  background: #FFFFFF;
+  color: var(--color-accent);
+  border: 1px solid #1434CB;
+  border-radius: 6px;
+  padding: 10px 14px;
+  gap: 6px;
+  height: 38px;
+  min-height: 24px;
+}
+
+.btn-secondary:hover {
+  border-radius: 6px;
+  border: 1px solid #173BE8;
+  background: rgba(179, 215, 255, 0.35);
+}
+
+.btn-secondary:active {
+  border-radius: 6px;
+  border: 1px solid #0F2595;
+  background: rgba(179, 215, 255, 0.6);
+}
+
+/* ============================================
+   Download icon for file cards
+   ============================================ */
+.file-download {
+  color: var(--color-accent);
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 40px 60px 60px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-tabs {
+    display: none;
+  }
+
+  .main-content {
+    padding: 32px 24px 48px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-content {
+    padding: 0 var(--size-200);
+  }
+
+  .app-name {
+    font-size: 16px;
+  }
+
+  .welcome-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: var(--size-200);
+    text-align: center;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    gap: var(--size-100);
+  }
+}
